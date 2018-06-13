@@ -1,18 +1,17 @@
 # Git specific
 .*
-!/.gitignore
+!.gitignore
+!.gitkeep
 
 # WP Plugin / Theme files
 ## Plugins
 wp-content/plugins/*
-!wp-content/plugins/.gitkeep
 ## Must-use plugins
 wp-content/mu-plugins/*/
 !
 ## Upgrades & uploads
 wp-content/upgrade
 wp-content/uploads/*
-!wp-content/uploads/.gitkeep
 ## Themes
 wp-content/themes/
 

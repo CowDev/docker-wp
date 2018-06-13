@@ -1,0 +1,48 @@
+version: '3'
+services:
+  wordpress:
+    container_name: wordpress_2
+    depends_on:
+        - mariadb
+    image: wordpress:latest
+    restart: always
+    volumes:
+        - ./wp-content:/var/www/html/wp-content 
+    environment:
+        WORDPRESS_DB_HOST: mariadb:3306
+        WORDPRESS_DB_USER: wordpress
+        WORDPRESS_DB_PASSWORD: wordpress
+    ports:
+      - 8000:80
+    networks:
+      - back
+  mariadb:
+    container_name: wp_db_2
+    image: mariadb:5.5
+    restart: always
+    volumes:
+       - mariadb_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    networks:
+      - back
+  phpmyadmin:
+    container_name: phpmyadmin_2
+    depends_on:
+      - mariadb
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: mariadb
+      MYSQL_ROOT_PASSWORD: wordpress
+    networks:
+      - back
+networks:
+  back:
+volumes:
+  mariadb_data:

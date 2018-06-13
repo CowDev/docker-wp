@@ -13,9 +13,8 @@ wp-content/mu-plugins/*/
 wp-content/upgrade
 wp-content/uploads/*
 ## Themes
-wp-content/themes/
+wp-content/themes/*/
 !wp-content/themes/index.php
-
 # Composer
 vendor/*
 !vendor/.gitkeep

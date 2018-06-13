@@ -6,14 +6,15 @@
 # WP Plugin / Theme files
 ## Plugins
 wp-content/plugins/*
+!wp-content/plugins/index.php
 ## Must-use plugins
 wp-content/mu-plugins/*/
-!
 ## Upgrades & uploads
 wp-content/upgrade
 wp-content/uploads/*
 ## Themes
 wp-content/themes/
+!wp-content/themes/index.php
 
 # Composer
 vendor/*
